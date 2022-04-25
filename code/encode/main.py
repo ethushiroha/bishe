@@ -34,19 +34,41 @@ class Spread:
     def __spread__(src_list: list, spread_list: list) -> list:
         result_list = src_list
         for i in range(len(src_list)):
-            for j in range(len(src_list[0])):
+            for j in range(len(src_list[i])):
                 left = 0
                 top = 0
                 if i != 0:
                     top = result_list[i - 1][j]
                 if j != 0:
                     left = result_list[i][j - 1]
-                result_list[i][j] = result_list[i][j] + top + left + spread_list[i][j]
+                result_list[i][j] = (result_list[i][j] + top + left + spread_list[i][j]) % 256
         return result_list
 
     @staticmethod
     def spread(src_list: list, spread_list: list) -> list:
         return Spread.__spread__(src_list, spread_list)
+
+    @staticmethod
+    def __fix__(encrypted_list: list, spread_list: list) -> list:
+        result_list = encrypted_list
+        for i in reversed(range(len(encrypted_list))):
+            for j in reversed(range(len(encrypted_list[i]))):
+                left = 0
+                top = 0
+                if i != 0:
+                    top = result_list[i - 1][j]
+                if j != 0:
+                    left = result_list[i][j - 1]
+                t = top + left + spread_list[i][j]
+                c = encrypted_list[i][j]
+                while c < t:
+                    c += 256
+                result_list[i][j] = c - t
+        return result_list
+
+    @staticmethod
+    def fix(encrypted_list: list, spread_list: list) -> list:
+        return Spread.__fix__(encrypted_list, spread_list)
 
 
 class Displace:
@@ -150,12 +172,14 @@ class ImgCrypto:
     def encrypt(src_list: list, sort_list: list, xor_list: list, spread_list: list) -> list:
         sorted_list = Displace.displace(src_list, sort_list)
         xored_list = Xor.xor(sorted_list, xor_list)
-        return xored_list
+        spreaded_list = Spread.spread(xored_list, spread_list)
+        return spreaded_list
 
     @staticmethod
     def decrypt(encrypt_list: list, sort_list: list, xor_list: list, spread_list: list) -> list:
-        xored_list = Xor.xor(encrypt_list, xor_list)
-        src_list = Displace.fix(xored_list, sort_list)
+        xored_list = Spread.fix(encrypt_list, spread_list)
+        sorted_list = Xor.xor(xored_list, xor_list)
+        src_list = Displace.fix(sorted_list, sort_list)
         return src_list
 
     @staticmethod
@@ -189,6 +213,19 @@ def test():
     print(Displace.fix(result, sorted_list))
 
 
+def test2():
+    img1 = cv2.imread("img.png", cv2.IMREAD_GRAYSCALE)
+    img2 = cv2.imread("img3.png", cv2.IMREAD_GRAYSCALE)
+
+    img = img1 - img2
+    for i in range(len(img)):
+        for j in range(len(img[i])):
+            if img[i][j] != 0:
+                print(i, j, img1[i][j], img2[i, j])
+    # print("true")
+
+
 if __name__ == '__main__':
-    main()
+    # main()
+    test2()
     # test()
