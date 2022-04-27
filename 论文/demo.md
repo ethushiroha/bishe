@@ -85,7 +85,6 @@ LE指数不同的取值有不同的含义：
 
 图4(a) 为 Sine 映射的 LE 指数图，当$\mu > 3.464$ 时，$LE > 0$；图4(b) 为 Logistic 映射的 LE 指数图，当$\mu > 3.57$ 时， $LE > 0$；图4(c) 为xxx映射的 LE 指数图，当 $\mu > 1$ 时，
 
-
 <center>
 <center id="part1">
     <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="./FILES/demo.md/881238b1.png" height=250> <br/><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999; padding: 2px;">(a) Sine 映射 LE 指数图</div>
@@ -94,7 +93,7 @@ LE指数不同的取值有不同的含义：
     <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="./FILES/demo.md/25531da3.png" height=250> <br/><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999; padding: 2px;">(b) Logistic 映射 LE 指数图</div>
 </center>
 <center  id="part3">
-    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="./FILES/demo.md/9fb987cb.png" height=250> <br/><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999; padding: 2px;">(c) t=26时分支图</div>
+    <img style="border-radius: 0.3125em; box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="./FILES/demo.md/9eec7d91.png" height=250> <br/><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #999; padding: 2px;">(c) t=26时分支图</div>
 </center>
 <center  id="part4">
 </center>

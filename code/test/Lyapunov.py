@@ -72,13 +72,42 @@ class Logistic_lyapunov:
 
 
 class My_logistic_lyapunov:
-    def __init__(self):
-        pass
+    def __init__(self, t):
+        self.t = t
+
+    def __calc_my_logistic(self, x):
+        return np.arcsin(4 * (1 - x) * x) * self.t % 1
+
+    def __calc_my_logistic_lyapunov(self, x):
+        tmp = (self.t * 4 * (1 - 2 * x)) / (np.sqrt(1 - 16 * x * x * (1 - x) * (1 - x)))
+        return np.log(abs(tmp))
+
+    def __calc(self, x0, n):
+        sum = 0
+        x = self.__calc_my_logistic(x0)
+        for i in range(n):
+            x = self.__calc_my_logistic(x)
+            sum += self.__calc_my_logistic_lyapunov(x)
+        return sum / n
+
+    @staticmethod
+    def draw(x0, n: 2000):
+        x_line = []
+        y_line = []
+        for t in np.arange(0, 64):
+            if t == 0:
+                continue
+            my_logistic = My_logistic_lyapunov(t)
+            y_line.append(my_logistic.__calc(x0, n))
+            x_line.append(t)
+
+        plot(x_line, y_line)
 
 
 def main():
     # Logistic_lyapunov.draw(0.5, 2000)
     # Sine_lyapunov.draw(0.5, 2000)
+    My_logistic_lyapunov.draw(0.5, 2000)
     print(1)
 
 
