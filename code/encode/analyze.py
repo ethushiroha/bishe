@@ -5,7 +5,7 @@ from scipy.stats import pearsonr
 
 
 def plot(x_line: list, y_line: list):
-    plt.plot(x_line, y_line)
+    plt.bar(x_line, y_line)
     plt.show()
 
 
@@ -22,6 +22,16 @@ class Img_statistics:
 
     # == hist
     def draw(self):
+        x_list = [i for i in range(256)]
+        y_list = self.__counts_pixel()
+        img: np.ndarray = self.img
+        img = img.reshape((1, self.img.shape[0] * self.img.shape[1]))
+        plt.hist(img[0], bins=255)
+        print(1)
+        plt.show()
+        # plot(x_list, y_list)
+
+    def draw2(self):
         x_list = [i for i in range(256)]
         y_list = self.__counts_pixel()
         plot(x_list, y_list)
@@ -87,10 +97,10 @@ def calc_r(x_list: list, y_list: list):
 
 
 def main():
-    img_name = "/Users/admin/Documents/bishe/code/encode/img2.png"
+    img_name = "/Users/admin/Documents/bishe/code/encode/img.png"
     # img = Img_statistics("/Users/admin/Documents/bishe/code/encode/img2.png")
     # img.draw()
-    img = Corr(img_name)
+    img = Img_statistics(img_name)
     img.draw()
 
 

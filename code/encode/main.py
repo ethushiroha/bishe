@@ -192,7 +192,7 @@ def main():
     k1 = Key(0.5, 29, 1000)
     k2 = Key(0.4, 37, 2000)
     k3 = Key(0.45, 57, 3000)
-    img = cv2.imread("../img/img.png", cv2.IMREAD_GRAYSCALE)
+    img = cv2.imread("img.png", cv2.IMREAD_GRAYSCALE)
     width, height = img.shape
 
     sort_list, xor_list, spread_list = ImgCrypto.generate(k1, k2, k3, height, width)
