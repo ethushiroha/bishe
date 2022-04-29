@@ -76,6 +76,9 @@ $$x_{n+1} = (t * arcsin(4 * x * (1-x))) \quad mod \quad 1, \tag{3}  x_n \in (0, 
 <br/><div style="border-bottom: 1px solid #d9d9d9; display: inline-block;">图3 xxx映射分叉图</div>
 </center>
 
+![Img](./FILES/demo.md/4b5ea90a.png)
+
+
 ### 1.3 性能测试
 
 #### 1.3.1 初值敏感性

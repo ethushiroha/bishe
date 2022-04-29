@@ -1,5 +1,5 @@
 import math
-import numpy as np
+
 import matplotlib.pyplot as plt
 
 
@@ -14,7 +14,7 @@ def main():
     u = 4
     # t = 7
     times = 10000
-    for t in range(10, 1000):
+    for t in range(1, 10):
         x = func(u, t, x0)
         ans_list = [0 for i in range(10)]
         x_list = [i for i in range(10)]
