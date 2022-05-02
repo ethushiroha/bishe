@@ -3,8 +3,8 @@ import numpy as np
 
 
 def OLACS(t, x):
-    return t * x * (1 - x)
-    # return (t * np.arcsin(4 * (1 - x) * x)) % 1
+    # return t * x * (1 - x)
+    return (t * np.arcsin(4 * (1 - x) * x)) % 1
 
 
 def main():

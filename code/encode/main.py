@@ -171,8 +171,11 @@ class ImgCrypto:
     @staticmethod
     def encrypt(src_list: list, sort_list: list, xor_list: list, spread_list: list) -> list:
         sorted_list = Displace.displace(src_list, sort_list)
+        ImgCrypto.write("sorted.png", sorted_list)
         xored_list = Xor.xor(sorted_list, xor_list)
+        ImgCrypto.write("xored.png", xored_list)
         spreaded_list = Spread.spread(xored_list, spread_list)
+        ImgCrypto.write("encrypted.png", spreaded_list)
         return spreaded_list
 
     @staticmethod
@@ -199,10 +202,10 @@ def main():
 
     src_list = img.tolist()
     encryted_list = ImgCrypto.encrypt(src_list, sort_list, xor_list, spread_list)
-    ImgCrypto.write("img2.png", encryted_list)
+    # ImgCrypto.write("img2.png", encryted_list)
 
     decrypt_list = ImgCrypto.decrypt(encryted_list, sort_list, xor_list, spread_list)
-    ImgCrypto.write("img3.png", decrypt_list)
+    # ImgCrypto.write("img3.png", decrypt_list)
 
 
 def test():
