@@ -74,7 +74,7 @@ class Corr:
         return self.get_next(height, width, reverse=True)
 
     def draw(self):
-        x_line, y_line = self.get_horizontal()
+        x_line, y_line = self.get_vertical()
         print(calc_r(x_line, y_line))
         print()
         print(pearsonr(x_line, y_line))
@@ -97,15 +97,18 @@ def calc_r(x_list: list, y_list: list):
 
 
 def main():
-    img_name = "/Users/admin/Documents/bishe/code/encode/img.png"
+    # img_name = "/Users/admin/Documents/bishe/code/encode/img.png"
+    img_name = "/Users/admin/Documents/bishe/code/encode/encrypted.png"
     # img = Img_statistics("/Users/admin/Documents/bishe/code/encode/img2.png")
     # img.draw()
-    img = Img_statistics(img_name)
+    img = Corr(img_name)
     img.draw()
+    # img = Img_statistics(img_name)
+    # img.draw()
 
 
 def test():
-    img1 = cv2.imread("/Users/admin/Documents/bishe/code/encode/img2.png", cv2.IMREAD_GRAYSCALE)
+    img1 = cv2.imread("/Users/admin/Documents/bishe/code/encode/encrypted.png", cv2.IMREAD_GRAYSCALE)
     hist1 = cv2.calcHist([img1], [0], None, [255], [0.0, 255.0])
     x_line = [i for i in range(255)]
     plot(x_line, hist1)
