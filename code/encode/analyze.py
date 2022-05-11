@@ -27,6 +27,8 @@ class Img_statistics:
         img: np.ndarray = self.img
         img = img.reshape((1, self.img.shape[0] * self.img.shape[1]))
         plt.hist(img[0], bins=255)
+        plt.xlabel("pixel")
+        plt.ylabel("frequency")
         print(1)
         plt.show()
         # plot(x_list, y_list)
@@ -78,6 +80,8 @@ class Corr:
         print(calc_r(x_line, y_line))
         print()
         print(pearsonr(x_line, y_line))
+        plt.xlabel("raw pixel")
+        plt.ylabel("adjacent pixels")
         plt.scatter(x_line, y_line, s=1)
         plt.show()
 

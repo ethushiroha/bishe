@@ -144,7 +144,6 @@ class OLACS:
 
 
 def main():
-    plt.title("Shannon")
     x_list, y_list = Logistic.draw()
     plt.plot(x_list, y_list, color='red', label='logistic')
     print(1)
@@ -154,6 +153,8 @@ def main():
     x_list, y_list = OLACS.draw()
     plt.plot(x_list, y_list, color='green', label="OLACS")
     print(3)
+    plt.xlabel("control param")
+    plt.ylabel("Shannon value")
     plt.legend()
     plt.show()
 

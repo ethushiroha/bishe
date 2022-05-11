@@ -9,7 +9,7 @@ def OLACS(t, x):
 
 def main():
     x0 = 0.5
-    times = 1000
+    times = 2000
     x_list = []
     y_list = []
     for t in np.arange(0, 4, 0.01):
@@ -20,8 +20,10 @@ def main():
             x = OLACS(t, x)
             x_list.append(t)
             y_list.append(x)
-    print(1)
     plt.scatter(x_list, y_list, s=0.01, alpha=0.4)
+    plt.xlabel("t")
+    plt.ylabel("x value")
+    plt.title("OLACS map")
     plt.ylim((0, 1.05))
     plt.xlim((1.0, 4.05))
     plt.show()

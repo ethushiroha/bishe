@@ -22,10 +22,13 @@ def draw(times: int = 60):
         y1_list.append(x1)
         x0 = OLACS(x0)
         x1 = OLACS(x1)
-        print(x0, x1)
+        # print(x0, x1)
 
-    plt.plot(x0_list, y0_list, color='red', label="0.4")
-    plt.plot(x1_list, y1_list, color='blue', label="0.40000001")
+    plt.plot(x0_list, y0_list, color='red', label="x0=0.4")
+    plt.plot(x1_list, y1_list, color='blue', label="x0=0.40000001")
+    plt.xlabel("times")
+    plt.ylabel("x value")
+    plt.title("Iterative curve")
     plt.legend()
     plt.show()
 

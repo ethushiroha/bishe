@@ -4,6 +4,8 @@ import numpy as np
 
 def plot(x_line: list, y_line: list):
     plt.plot(x_line, y_line)
+    plt.xlabel("control param")
+    plt.ylabel("Lyapunov value")
     line_min = min(x_line)
     line_max = max(x_line)
     plt.hlines(line_min, line_max, 0.5, colors='r', linestyles="dashed")
@@ -109,8 +111,8 @@ class My_logistic_lyapunov:
 
 def main():
     # Logistic_lyapunov.draw(0.5, 2000)
-    Sine_lyapunov.draw(0.5, 2000)
-    # My_logistic_lyapunov.draw(0.5, 2000)
+    # Sine_lyapunov.draw(0.5, 2000)
+    My_logistic_lyapunov.draw(0.5, 2000)
     print(1)
 
 
